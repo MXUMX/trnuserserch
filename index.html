@@ -1,0 +1,60 @@
+<head>
+</head>
+<body>
+
+<textarea id="keyInput" placeholder="Enter your key here" rows="1" cols="60"></textarea><br>
+<textarea id="promptInput" placeholder="Enter your prompt here" rows="4" cols="50"></textarea><br>
+<textarea id="promptInput" placeholder="Enter your prompt here" rows="4" cols="50"></textarea><br>
+
+<!-- Button to trigger the sending of the prompt -->
+<button id="sendButton">Send</button>
+
+<!-- Area to display the generated response -->
+<div id="responseArea"></div>
+
+<script>
+const key = document.getElementById("keyInput").value; // Get the text from the textbox
+if (!key) {
+  const key = "m3aNhOSwTeSrGzet"
+}
+const input1 = ;
+
+const match = input1.match(/\[(\d+)\]/);
+
+if (match && match[1]) {
+  const id = match[1]; // Extracted ID
+  const url = `https://www.torn.com/profiles.php?XID=${id}`;
+  const apiurl = `https://api.torn.com/user/${id}?selections=profile&key=${key}`;
+  
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+
+      
+
+      const get1 = data.last_action.relative;
+      const get5 = data.age;
+      const get2 = ;
+      const get3 = data.level;
+      const get4 = ;
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
+  const lastRow = sheet.getLastRow();
+  sheet.getRange("B3").setValue(url);
+  sheet.getRange("C3").setValue("Age: " + get1 + " / Last action: " + get5);
+  sheet.getRange("D3").setBackground(get2);
+  sheet.getRange("D3").setValue(get3);
+  sheet.getRange("E3").setValue(get4)
+} else {
+  alert("Invalid format. Please enter in 'Username [1234567]' format.");
+}
+</script>
+</body>
